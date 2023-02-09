@@ -1,7 +1,6 @@
-package kotlin
-
-class Main {
-
-    fun main(args: Array<String>) {
-    }
-}
+//package kotlin
+//
+//class Main {
+//
+//
+//}

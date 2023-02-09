@@ -1,5 +1,5 @@
-package kotlin
-
-interface Policy {
-    // Do Something
-}
+//package kotlin
+//
+//interface Policy {
+//    // Do Something
+//}
