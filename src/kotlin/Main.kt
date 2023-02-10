@@ -1,6 +1,0 @@
-//package kotlin
-//
-//class Main {
-//
-//
-//}

@@ -3,7 +3,7 @@ package javaa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//hi
 public class Customer {
     private final String costumerName;
     private final String costumerSurname;
