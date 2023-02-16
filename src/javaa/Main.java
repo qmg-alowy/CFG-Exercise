@@ -1,27 +1,53 @@
 package javaa;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
-// hi
+
         Customer Juan = new Customer("Juan", "Giron");
+        Customer Alex = new Customer("Alex", "Lowy");
+        Customer Jeanette = new Customer("Jeanette", "Giron");
 
         Policy goldPolicy = new GoldPolicy();
         Policy silverPolicy = new SilverPolicy();
         Policy bronzePolicy = new BronzePolicy();
 
-        Order order1 = new Order("01", goldPolicy);
-        Order order2 = new Order("02", silverPolicy);
-        Order order3 = new Order("03", bronzePolicy);
+        Order gold = new Order(goldPolicy,"01", LocalDate.now());
+        Order silver = new Order(silverPolicy,"02", LocalDate.now());
+        Order bronze = new Order(bronzePolicy,"03", LocalDate.now());
 
 
-        Juan.addOrder(order1);
-        Juan.addOrder(order2);
-        Juan.addOrder(order3);
+        OrderEntry orderEntryJuan = new OrderEntry(Juan,1);
+        OrderEntry orderEntryAlex = new OrderEntry(Alex,2);
+        OrderEntry orderEntryJeanette = new OrderEntry(Jeanette,3);
 
-        System.out.println("Order " + Juan.getOrderid());
-        System.out.println("Policy type: " + Juan.getTypeOrder());
-        System.out.println("Total Price: " + Juan.getTotalCost());
+
+        orderEntryJuan.addOrder(gold);
+        orderEntryJuan.addOrder(bronze);
+        orderEntryJuan.addOrder(bronze);
+        orderEntryAlex.addOrder(bronze);
+        orderEntryAlex.addOrder(gold);
+        orderEntryAlex.addOrder(gold);
+        orderEntryJeanette.addOrder(silver);
+        orderEntryJeanette.addOrder(silver);
+        orderEntryJeanette.addOrder(silver);
+
+
+        printInformation(orderEntryJuan);
+        printInformation(orderEntryAlex);
+        printInformation(orderEntryJeanette);
 
     }
+
+    private static void printInformation(OrderEntry orderEntryCustomer) {
+        System.out.println("Order Entry ID:  " + orderEntryCustomer.getOrderEntryId());
+        System.out.println("Quantity of Policies Purchased:  " + orderEntryCustomer.totalOfPoliciesPurchase());
+        System.out.println("Order Purchased Date: " + orderEntryCustomer.getDateOrder());
+        System.out.println("Policy types Purchased in this Order Entry: " + orderEntryCustomer.getTypeOrder());
+        System.out.println("Total Price: " + orderEntryCustomer.getTotalCost());
+        System.out.println();
+    }
+
 }
